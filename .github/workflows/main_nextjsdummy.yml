@@ -33,6 +33,7 @@ jobs:
           cp -r public deploy/
           cp package.json package-lock.json deploy/
           cp -r node_modules deploy/
+          ls -ltr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -66,4 +67,4 @@ jobs:
         with:
           app-name: 'nextjsdummy'
           slot-name: 'Production'
-          package: .
+          package: 'release.zip'
