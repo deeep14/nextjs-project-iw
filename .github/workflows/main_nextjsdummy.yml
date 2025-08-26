@@ -26,14 +26,11 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Prepare deployment package
+      - name: Logs
         run: |
-          mkdir deploy
-          cp -r .next deploy/
-          cp -r public deploy/
-          cp package.json package-lock.json deploy/
-          cp -r node_modules deploy/
-          ls -ltr
+          pwd
+          ls
+          ls -lrt
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -67,4 +64,4 @@ jobs:
         with:
           app-name: 'nextjsdummy'
           slot-name: 'Production'
-          package: 'release.zip'
+          package: .
