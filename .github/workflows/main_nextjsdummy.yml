@@ -38,22 +38,17 @@ jobs:
       - name: logs after build
         run : |
           pwd
-          ls -a
           ls -lart
-          ls -l .next
-          ls -l node_modules      
 
-      - name: Prepare deployment package
+      - name: Prepare standalone deployment
         run: |
           mkdir -p deploy
-          cp -v -R .next deploy/
-          cp -R public deploy/ || true
+          cp -R .next/standalone/* deploy/
+          cp -R .next/static deploy/.next/static
+          cp -R public deploy/public || true
           cp package*.json deploy/
-          cp -R node_modules deploy/
-          ls -lart deploy
+          tar -czf deploy.tar.gz -C deploy .
 
-      - name: Tar deploy folder
-        run: tar -czf deploy.tar.gz -C deploy .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
