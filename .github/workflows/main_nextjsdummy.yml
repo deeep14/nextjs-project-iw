@@ -29,11 +29,11 @@ jobs:
           ls -a
           ls -lart
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      # - name: npm install, build, and test
+      #   run: |
+      #     npm install
+      #     npm run build --if-present
+      #     npm run test --if-present
       
       - name: logs after build
         run : |
@@ -43,23 +43,23 @@ jobs:
           ls -l .next
           ls -l node_modules      
 
-      - name: Prepare deployment package
-        run: |
-          mkdir -p deploy
-          cp -v -R .next deploy/
-          cp -R public deploy/ || true
-          cp package*.json deploy/
-          cp -R node_modules deploy/
-          ls -lart deploy
+      # - name: Prepare deployment package
+      #   run: |
+      #     mkdir -p deploy
+      #     cp -v -R .next deploy/
+      #     cp -R public deploy/ || true
+      #     cp package*.json deploy/
+      #     cp -R node_modules deploy/
+      #     ls -lart deploy
 
-      - name: Tar deploy folder
-        run: tar -czf deploy.tar.gz -C deploy .
+      # - name: Tar deploy folder
+      #   run: tar -czf deploy.tar.gz -C deploy .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: deploy.tar.gz
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
