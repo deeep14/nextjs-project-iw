@@ -75,16 +75,14 @@ jobs:
           name: node-app
           path: .
 
-      - name: Extract deploy artifact
-        run: |
-          mkdir -p deploy
-          tar -xzf deploy.tar.gz -C deploy
+      # - name: Extract deploy artifact
+      #   run: |
+      #     mkdir -p deploy
+      #     tar -xzf deploy.tar.gz -C deploy
 
       - name: logs during deployment
         run: |
           pwd
-          ls -lart
-          cd deploy
           ls -lart
       
       - name: Login to Azure
