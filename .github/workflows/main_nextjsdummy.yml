@@ -46,8 +46,10 @@ jobs:
       - name: Prepare deployment package
         run: |
           mkdir -p deploy
-          cp -R .next deploy/
+          cp -v -R .next deploy/
+          cp -R public deploy/ || true
           cp package*.json deploy/
+          cp -R node_modules deploy/
           ls -lart deploy
 
       - name: Tar deploy folder
