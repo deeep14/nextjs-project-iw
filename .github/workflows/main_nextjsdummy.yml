@@ -35,13 +35,13 @@ jobs:
       #     npm run build --if-present
       #     npm run test --if-present
       
-      - name: logs after build
-        run : |
-          pwd
-          ls -a
-          ls -lart
-          ls -l .next
-          ls -l node_modules      
+      # - name: logs after build
+      #   run : |
+      #     pwd
+      #     ls -a
+      #     ls -lart
+      #     ls -l .next
+      #     ls -l node_modules      
 
       # - name: Prepare deployment package
       #   run: |
