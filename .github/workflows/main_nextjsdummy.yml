@@ -98,5 +98,5 @@ jobs:
         with:
           app-name: 'nextjsdummy'
           slot-name: 'Production'
-          package: deploy
+          package: .
           
