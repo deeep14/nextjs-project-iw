@@ -46,8 +46,7 @@ jobs:
       - name: Prepare deployment package
         run: |
           mkdir -p deploy
-          cp -v -R .next deploy/
-          cp -R public deploy/ || true
+          cp -R .next deploy/
           cp package*.json deploy/
           ls -lart deploy
 
