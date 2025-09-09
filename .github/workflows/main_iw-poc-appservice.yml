@@ -28,6 +28,11 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+      
+      - name: Logging
+        run: |
+          pwd
+          ls -lart
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -47,6 +52,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+      
+      - name: Logging
+        run: |
+          pwd
+          ls -lart
       
       - name: Login to Azure
         uses: azure/login@v2
